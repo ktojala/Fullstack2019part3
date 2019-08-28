@@ -1,0 +1,30 @@
+{
+  "name": "fullstack2019part3_backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktojala/Fullstack2019part3.git"
+  },
+  "keywords": [
+    "phonebook"
+  ],
+  "author": "Kari Ojala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ktojala/Fullstack2019part3/issues"
+  },
+  "homepage": "https://github.com/ktojala/Fullstack2019part3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
