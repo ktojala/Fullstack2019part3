@@ -5,6 +5,9 @@ const app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+const cors = require('cors')
+app.use(cors())
+
 morgan.token('postwhat', function(req,res) {
   if (req.method === 'POST') {
   return JSON.stringify(req.body) }
