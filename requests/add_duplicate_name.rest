@@ -1,4 +1,4 @@
-post /api/persons
+post https://fspart3-phonebook-backend.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
