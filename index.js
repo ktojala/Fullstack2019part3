@@ -1,5 +1,5 @@
-// import express from 'express';
-import express, { static } from 'express';
+const express = require('express') 
+
 const app = express()
 
 import { json } from 'body-parser';
