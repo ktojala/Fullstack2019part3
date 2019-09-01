@@ -1,5 +1,4 @@
 import express from 'express';
-import morgan, { token } from 'morgan';
 const app = express()
 
 import { json } from 'body-parser';
@@ -12,6 +11,8 @@ token('postwhat', function(req,res) {
   if (req.method === 'POST') {
   return JSON.stringify(req.body) }
 })
+
+import morgan, { token } from 'morgan';
 app.use(morgan(':method :url :status :res[content-length] :response-time ms :postwhat'))
 
 let persons = [
@@ -37,9 +38,8 @@ let persons = [
       }
 ]
 
-
 app.get('/', (req, res) => {
-  res.send('<h1>Try http://localhost:3001/api/persons </h1>')
+  res.send('<h1>Try /api/persons </h1>')
 })
     
 app.get('/api/persons', (req, res) => {
@@ -106,8 +106,8 @@ app.post('/api/persons', (req, res) => {
   res.json(newPerson)
 })
 
-const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' })
+const unknownEndpoint = (req, res) => {
+  res.status(404).send({ error: 'unknown endpoint' })
 }
 app.use(unknownEndpoint)
 
