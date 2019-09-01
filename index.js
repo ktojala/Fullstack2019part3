@@ -1,19 +1,21 @@
 const express = require('express') 
-
 const app = express()
 
-import { json } from 'body-parser';
-app.use(json())
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
-import cors from 'cors';
+const cors = require('cors') 
 app.use(cors())
 
-token('postwhat', function(req,res) {
+const morgan = require('morgan')
+morgan.token('postwhat', function(req,res) {
   if (req.method === 'POST') {
   return JSON.stringify(req.body) }
 })
 
-import morgan, { token } from 'morgan';
+// morgan.token('body', (req) => { return JSON.stringify(req.body)})
+// import morgan, { token } from 'morgan';
+
 app.use(morgan(':method :url :status :res[content-length] :response-time ms :postwhat'))
 
 let persons = [
