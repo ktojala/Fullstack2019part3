@@ -1,14 +1,14 @@
-const express = require('express')
-const morgan = require('morgan')
+import express from 'express';
+import morgan, { token } from 'morgan';
 const app = express()
 
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
+import { json } from 'body-parser';
+app.use(json())
 
-const cors = require('cors')
+import cors from 'cors';
 app.use(cors())
 
-morgan.token('postwhat', function(req,res) {
+token('postwhat', function(req,res) {
   if (req.method === 'POST') {
   return JSON.stringify(req.body) }
 })
@@ -109,10 +109,8 @@ app.post('/api/persons', (req, res) => {
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
-
 app.use(unknownEndpoint)
 
-
-const port = process.env.port || 3001
-app.listen(port)
-console.log(`Server running on port ${port}`)
+const PORT = process.env.PORT || 3001
+app.listen(PORT)
+console.log(`Server running on port ${PORT}`)
